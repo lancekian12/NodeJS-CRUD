@@ -1,4 +1,12 @@
 {
+  "name": "Student CRUD NODEJS",
+  "version": "1.0.0",
+  "description": "Learning CRUD Node, express, mongodb",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "start:prod": "NODE_ENV=production nodemon server.js"
+  },
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.19.2",

@@ -1,32 +1,43 @@
 const Student = require("./../models/studentModel");
-const catchAsync = require("./../utils/catchAsync");
 
-exports.getStudent = catchAsync(async (req, res, next) => {
-  const student = await Student.findById(req.params.id);
-  if (!student) {
-    return next(new AppError("No tour found with that ID", 404));
+exports.getAllStudent = async (req, res) => {
+  try {
+    const students = await Student.find();
+
+    res.status(200).json({
+      status: "success",
+      results: students.length,
+      data: {
+        students,
+      },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err,
+    });
   }
-  res.status(200).json({
-    status: "success",
-    data: {
-      student,
-    },
-  });
+};
 
-  // res.status(200).json({
-  //   status: 'success',
-  //   results: tours.length,
-  //   data: {
-  //     tour
-  //   }
-  // });
-});
+exports.getStudent = async (req, res) => {
+  try {
+    const student = await Student.findById(req.params.id);
+    res.status(200).json({
+      status: "success",
+      data: {
+        student,
+      },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err,
+    });
+  }
+};
 
 exports.createStudent = async (req, res) => {
   try {
-    // const newTour = new Tour({});
-    // newTour.save();
-
     const newStudent = await Student.create(req.body);
 
     res.status(201).json({
@@ -42,16 +53,18 @@ exports.createStudent = async (req, res) => {
     });
   }
 };
+
 exports.updateStudent = async (req, res) => {
   try {
     const student = await Student.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
     });
+
     res.status(200).json({
       status: "success",
       data: {
-        tour: "<Updated> tour here... ",
+        student: student, // Use the updated student object
       },
     });
   } catch (err) {
@@ -62,10 +75,18 @@ exports.updateStudent = async (req, res) => {
   }
 };
 
-exports.deleteStudent = (req, res) => {
-  console.log(req.params);
-  res.status(204).json({
-    status: "success",
-    data: null,
-  });
+exports.deleteStudent = async (req, res) => {
+  try {
+    await Student.findByIdAndDelete(req.params.id);
+
+    res.status(204).json({
+      status: "success",
+      data: null,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      message: err,
+    });
+  }
 };

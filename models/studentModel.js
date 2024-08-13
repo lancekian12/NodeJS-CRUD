@@ -6,11 +6,11 @@ const studentSchema = new mongoose.Schema({
     required: true,
     maxlength: [
       50,
-      "A student name must have less or equal than 40 characters",
+      "A student name must have less or equal than 50 characters",
     ],
     minlength: [
-      20,
-      "A student name must have less or equal than 10 characters",
+      10,
+      "A student name must have more or equal than 10 characters",
     ],
   },
   age: {
