@@ -1,4 +1,5 @@
 const Student = require("./../models/studentModel");
+const catchAsync = require("./../utils/catchAsync");
 
 exports.getAllStudent = async (req, res) => {
   try {
@@ -54,26 +55,26 @@ exports.createStudent = async (req, res) => {
   }
 };
 
-// exports.updateStudent = async (req, res) => {
-//   try {
-//     const student = await Student.findByIdAndUpdate(req.params.id, req.body, {
-//       new: true,
-//       runValidators: true,
-//     });
+exports.updateStudent = async (req, res) => {
+  try {
+    const student = await Student.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
 
-//     res.status(200).json({
-//       status: "success",
-//       data: {
-//         student: student, // Use the updated student object
-//       },
-//     });
-//   } catch (err) {
-//     res.status(400).json({
-//       status: "fail",
-//       message: "Invalid data sent!",
-//     });
-//   }
-// };
+    res.status(200).json({
+      status: "success",
+      data: {
+        student: student, // Use the updated student object
+      },
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      message: "Invalid data sent!",
+    });
+  }
+};
 
 exports.deleteStudent = async (req, res) => {
   try {
