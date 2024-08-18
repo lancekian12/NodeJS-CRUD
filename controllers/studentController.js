@@ -6,7 +6,11 @@ const AppError = require('./../utils/appError');
 
 exports.getAllStudent = async (req, res) => {
   try {
-    const student = await Student.find();
+    const queryObj = { ...req.query };
+    const excludedFields = ['studentName'];
+    excludedFields.forEach((el) => delete queryObj[el]);
+
+    const student = await Student.find(queryObj);
 
     res.status(200).json({
       status: 'success',
