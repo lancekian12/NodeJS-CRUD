@@ -2,26 +2,31 @@
   {
     "studentName": "Lance Kian Flores",
     "age": 21,
-    "section": "'SYSDEV-01'"
+    "section": "SYSDEV-01",
+    "tuitionFee": 500
   },
   {
     "studentName": "Christer Dale Reyes",
     "age": 20,
-    "section": "'SYSDEV-01'"
+    "section": "SYSDEV-01",
+    "tuitionFee": 1000
   },
   {
     "studentName": "Jaydee Ang",
     "age": 21,
-    "section": "'SYSDEV-01'"
+    "section": "SYSDEV-01",
+    "tuitionFee": 1500
   },
   {
     "studentName": "Jem Centino",
     "age": 21,
-    "section": "'SYSDEV-01'"
+    "section": "SYSDEV-01",
+    "tuitionFee": 2000
   },
   {
     "studentName": "Janylle Borje",
     "age": 21,
-    "section": "'SYSDEV-01'"
+    "section": "SYSDEV-01",
+    "tuitionFee": 3000
   }
 ]

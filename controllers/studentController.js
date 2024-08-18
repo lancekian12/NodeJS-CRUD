@@ -10,13 +10,28 @@ exports.getAllStudent = async (req, res) => {
     // 1.) Filtering
     const queryObj = { ...req.query };
     const excludedFields = ['studentName'];
+    console.log(queryObj);
     excludedFields.forEach((el) => delete queryObj[el]);
 
     // 2.) Advance Filtering
     let queryStr = JSON.stringify(queryObj);
     queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
+    console.log(JSON.parse(queryStr));
 
-    const query = Student.find(JSON.parse(queryStr));
+    let query = Student.find(JSON.parse(queryStr));
+
+    // 3.) Sorting
+    if (req.query.sort) {
+      query = query.sort(req.query.sort);
+    }
+
+    // // 4.) Limiting Fields
+    // if (req.query.fields) {
+    //   const fields = req.query.fields.split(',').join(' ');
+    //   query = query.select(fields);
+    // } else {
+    //   query = query.select('-__v');
+    // }
 
     // Executing the query
     const student = await query;
@@ -32,7 +47,7 @@ exports.getAllStudent = async (req, res) => {
   } catch (err) {
     res.status(404).json({
       status: 'fail',
-      message: err,
+      message: err.message,
     });
   }
 };
