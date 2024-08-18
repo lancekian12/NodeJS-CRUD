@@ -1,6 +1,27 @@
 const Student = require("./../models/studentModel");
 const catchAsync = require("./../utils/catchAsync");
 
+exports.checkID = async (req, res, next, val) => {
+  console.log(`Student id is: ${val}`);
+  if (req.params.id * 1 > tours.length) {
+    return res.status(404).json({
+      status: "fail",
+      message: "Invalid ID",
+    });
+  }
+  next();
+};
+
+exports.checkBody = async (req, res, next, val) => {
+  if (!req.body.studentName || !req.body.age) {
+    return res.status(404).json({
+      status: "fail",
+      message: "Invalid ID",
+    });
+  }
+  next();
+};
+
 exports.getAllStudent = async (req, res) => {
   try {
     const students = await Student.find();
