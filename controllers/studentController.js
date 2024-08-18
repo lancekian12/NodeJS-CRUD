@@ -1,12 +1,12 @@
-const Student = require("./../models/studentModel");
-const catchAsync = require("./../utils/catchAsync");
+const Student = require('./../models/studentModel');
+const catchAsync = require('./../utils/catchAsync');
 
 exports.checkID = async (req, res, next, val) => {
   console.log(`Student id is: ${val}`);
   if (req.params.id * 1 > tours.length) {
     return res.status(404).json({
-      status: "fail",
-      message: "Invalid ID",
+      status: 'fail',
+      message: 'Invalid ID',
     });
   }
   next();
@@ -15,8 +15,8 @@ exports.checkID = async (req, res, next, val) => {
 exports.checkBody = async (req, res, next, val) => {
   if (!req.body.studentName || !req.body.age) {
     return res.status(404).json({
-      status: "fail",
-      message: "Invalid ID",
+      status: 'fail',
+      message: 'Invalid ID',
     });
   }
   next();
@@ -24,18 +24,18 @@ exports.checkBody = async (req, res, next, val) => {
 
 exports.getAllStudent = async (req, res) => {
   try {
-    const students = await Student.find();
+    const student = await Student.find();
 
     res.status(200).json({
-      status: "success",
-      results: students.length,
+      status: 'success',
+      results: student.length,
       data: {
-        students,
+        student,
       },
     });
   } catch (err) {
     res.status(404).json({
-      status: "fail",
+      status: 'fail',
       message: err,
     });
   }
@@ -45,14 +45,14 @@ exports.getStudent = async (req, res) => {
   try {
     const student = await Student.findById(req.params.id);
     res.status(200).json({
-      status: "success",
+      status: 'success',
       data: {
         student,
       },
     });
   } catch (err) {
     res.status(404).json({
-      status: "fail",
+      status: 'fail',
       message: err,
     });
   }
@@ -63,15 +63,15 @@ exports.createStudent = async (req, res) => {
     const newStudent = await Student.create(req.body);
 
     res.status(201).json({
-      status: "success",
+      status: 'success',
       data: {
         student: newStudent,
       },
     });
   } catch (err) {
     res.status(400).json({
-      status: "fail",
-      message: "Invalid data sent!",
+      status: 'fail',
+      message: 'Invalid data sent!',
     });
   }
 };
@@ -84,15 +84,15 @@ exports.updateStudent = async (req, res) => {
     });
 
     res.status(200).json({
-      status: "success",
+      status: 'success',
       data: {
         student: student, // Use the updated student object
       },
     });
   } catch (err) {
     res.status(400).json({
-      status: "fail",
-      message: "Invalid data sent!",
+      status: 'fail',
+      message: 'Invalid data sent!',
     });
   }
 };
@@ -102,12 +102,12 @@ exports.deleteStudent = async (req, res) => {
     await Student.findByIdAndDelete(req.params.id);
 
     res.status(204).json({
-      status: "success",
+      status: 'success',
       data: null,
     });
   } catch (err) {
     res.status(400).json({
-      status: "fail",
+      status: 'fail',
       message: err,
     });
   }

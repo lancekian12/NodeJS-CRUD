@@ -1,5 +1,5 @@
 {
-  "name": "Student CRUD NODEJS",
+  "name": "Student",
   "version": "1.0.0",
   "description": "Learning CRUD Node, express, mongodb",
   "main": "app.js",
