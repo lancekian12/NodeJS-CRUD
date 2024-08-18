@@ -13,20 +13,19 @@ const DB = process.env.DATABASE.replace(
 mongoose
   .connect(DB, {
     useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
+    useUnifiedTopology: true,
   })
   .then(() => console.log('DB connection successful!'));
 
-// READ DUMMY DATA
+// READ JSON DUMMY DATA
 const tours = JSON.parse(
-  fs.readFileSync(`${__dirname}/tours-simple.json`, 'utf-8'),
+  fs.readFileSync(`${__dirname}/dummy_data.json`, 'utf-8'),
 );
 
 // IMPORT DATA INTO DB
 const importData = async () => {
   try {
-    await Tour.create(tours);
+    await Student.create(tours);
     console.log('Data successfully loaded!');
   } catch (err) {
     console.log(err);
@@ -37,13 +36,14 @@ const importData = async () => {
 // DELETE ALL DATA FROM DB
 const deleteData = async () => {
   try {
-    await Tour.deleteMany();
+    await Student.deleteMany();
     console.log('Data successfully deleted!');
   } catch (err) {
     console.log(err);
   }
   process.exit();
 };
+console.log(process.argv);
 
 // code node dev-data/data/import-dev-data.js --import
 if (process.argv[2] === '--import') {
