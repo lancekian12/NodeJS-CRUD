@@ -6,12 +6,22 @@ const AppError = require('./../utils/appError');
 
 exports.getAllStudent = async (req, res) => {
   try {
+    //BUILD THE QUERY
+    // 1.) Filtering
     const queryObj = { ...req.query };
     const excludedFields = ['studentName'];
     excludedFields.forEach((el) => delete queryObj[el]);
 
-    const student = await Student.find(queryObj);
+    // 2.) Advance Filtering
+    let queryStr = JSON.stringify(queryObj);
+    queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
 
+    const query = Student.find(JSON.parse(queryStr));
+
+    // Executing the query
+    const student = await query;
+
+    // Send Response
     res.status(200).json({
       status: 'success',
       results: student.length,
