@@ -1,5 +1,6 @@
 const Student = require('./../models/studentModel');
 const catchAsync = require('./../utils/catchAsync');
+const AppError = require('./../utils/appError');
 
 // Application Logic and HTTP Request
 
@@ -63,11 +64,10 @@ exports.updateStudent = async (req, res) => {
       new: true,
       runValidators: true,
     });
-
     res.status(200).json({
       status: 'success',
       data: {
-        student: student, // Use the updated student object
+        student: student,
       },
     });
   } catch (err) {

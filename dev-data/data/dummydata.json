@@ -1,0 +1,27 @@
+[
+  {
+    "studentName": "Lance Kian Flores",
+    "age": 21,
+    "section": "'SYSDEV-01'"
+  },
+  {
+    "studentName": "Christer Dale Reyes",
+    "age": 20,
+    "section": "'SYSDEV-01'"
+  },
+  {
+    "studentName": "Jaydee Ang",
+    "age": 21,
+    "section": "'SYSDEV-01'"
+  },
+  {
+    "studentName": "Jem Centino",
+    "age": 21,
+    "section": "'SYSDEV-01'"
+  },
+  {
+    "studentName": "Janylle Borje",
+    "age": 21,
+    "section": "'SYSDEV-01'"
+  }
+]
