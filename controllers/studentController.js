@@ -87,7 +87,7 @@ exports.updateStudent = catchAsync(async (req, res, next) => {
 });
 
 exports.deleteStudent = catchAsync(async (req, res, next) => {
-  await Student.findByIdAndDelete(req.params.id);
+  const student = await Student.findByIdAndDelete(req.params.id);
   if (!student) {
     return next(new AppError('No student has found with that ID', 404));
   }

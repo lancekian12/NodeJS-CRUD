@@ -2,10 +2,13 @@ const express = require('express');
 const morgan = require('morgan');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
+const cors = require('cors');
 
 // const hpp = require("hpp");
 
 const app = express();
+
+app.use(cors());
 
 const studentRouter = require('./routes/studentRoute');
 
