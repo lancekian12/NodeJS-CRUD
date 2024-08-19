@@ -2,10 +2,13 @@
   "name": "Student",
   "version": "1.0.0",
   "description": "Learning CRUD Node, express, mongodb",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
     "start:prod": "NODE_ENV=production nodemon server.js"
+  },
+  "engines": {
+    "ndoe": "18x"
   },
   "dependencies": {
     "cors": "^2.8.5",

@@ -15,6 +15,9 @@ const studentRouter = require('./routes/studentRoute');
 // 1. Middlewares
 app.use(express.json());
 app.use(morgan('dev'));
+app.use('/', (req, res) => {
+  res.send("Hello World.");
+});
 app.use((req, res, next) => {
   console.log('Hello from the server 👋');
   next();

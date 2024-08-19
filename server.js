@@ -16,10 +16,7 @@ const DB = process.env.DATABASE.replace(
 
 //Function to Connecting DB
 mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(DB) // Remove due to being unecessary code 
   .then(() => console.log("DB connection successful!"));
 
 // SERVER PORT
