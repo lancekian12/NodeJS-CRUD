@@ -1,32 +1,37 @@
 [
   {
-    "studentName": "Lance Kian Flores",
-    "age": 21,
-    "section": "SYSDEV-01",
-    "tuitionFee": 500
+    "firstName": "Lance Kian",
+    "lastName": "Flores",
+    "course": "BSIT",
+    "year": "4th year",
+    "enrolled": true
   },
   {
-    "studentName": "Christer Dale Reyes",
-    "age": 20,
-    "section": "SYSDEV-01",
-    "tuitionFee": 1000
+    "firstName": "Christer Dale",
+    "lastName": "Reyes",
+    "course": "BSIT",
+    "year": "2nd year",
+    "enrolled": true
   },
   {
-    "studentName": "Jaydee Ang",
-    "age": 21,
-    "section": "SYSDEV-01",
-    "tuitionFee": 1500
+    "firstName": "Jaydee",
+    "lastName": "Ang",
+    "course": "BSIT",
+    "year": "3rd year",
+    "enrolled": true
   },
   {
-    "studentName": "Jem Centino",
-    "age": 21,
-    "section": "SYSDEV-01",
-    "tuitionFee": 2000
+    "firstName": "Jem Centino",
+    "lastName": "Centino",
+    "course": "BSIT",
+    "year": "First year",
+    "enrolled": true
   },
   {
-    "studentName": "Janylle Borje",
-    "age": 21,
-    "section": "SYSDEV-01",
-    "tuitionFee": 3000
+    "firstName": "Janylle Borje",
+    "lastName": "Borje",
+    "course": "BSIT",
+    "year": "Third year",
+    "enrolled": true
   }
 ]
