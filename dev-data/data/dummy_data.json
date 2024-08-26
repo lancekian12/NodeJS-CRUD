@@ -3,25 +3,39 @@
     "firstName": "Lance Kian",
     "lastName": "Flores",
     "course": "BSIT",
-    "year": "4th year",
+    "year": "Fourth year",
+    "enrolled": true
+  },
+  {
+    "firstName": "Kian",
+    "lastName": "Flores",
+    "course": "BSIT",
+    "year": "Fourth year",
     "enrolled": true
   },
   {
     "firstName": "Christer Dale",
     "lastName": "Reyes",
     "course": "BSIT",
-    "year": "2nd year",
+    "year": "Second year",
+    "enrolled": true
+  },
+  {
+    "firstName": "Christer",
+    "lastName": "Reyes",
+    "course": "BSIT",
+    "year": "Second year",
     "enrolled": true
   },
   {
     "firstName": "Jaydee",
     "lastName": "Ang",
     "course": "BSIT",
-    "year": "3rd year",
+    "year": "Third year",
     "enrolled": true
   },
   {
-    "firstName": "Jem Centino",
+    "firstName": "Jem",
     "lastName": "Centino",
     "course": "BSIT",
     "year": "First year",

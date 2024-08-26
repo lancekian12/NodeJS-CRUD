@@ -9,8 +9,8 @@ const studentSchema = new mongoose.Schema({
       'A student first name must have less or equal than 50 characters',
     ],
     minlength: [
-      6,
-      'A student first name must have more or equal than 10 characters',
+      3,
+      'A student first name must have more or equal than 3 characters',
     ],
   },
   lastName: {
@@ -21,8 +21,8 @@ const studentSchema = new mongoose.Schema({
       'A student last name must have less or equal than 50 characters',
     ],
     minlength: [
-      6,
-      'A student last name must have more or equal than 10 characters',
+      3,
+      'A student last name must have more or equal than 3 characters',
     ],
   },
   course: {
@@ -31,10 +31,6 @@ const studentSchema = new mongoose.Schema({
     maxlength: [
       50,
       'A student course must have less or equal than 50 characters',
-    ],
-    minlength: [
-      6,
-      'A student last name must have more or equal than 10 characters',
     ],
   },
   year: {
