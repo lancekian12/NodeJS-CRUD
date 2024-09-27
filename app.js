@@ -6,6 +6,8 @@ const cors = require('cors');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const studentRouter = require('./routes/studentRoute');
+const authRouter = require('./routes/authRoute');
+const userRouter = require('./routes/userRoute');
 
 // Load environment variables from the config file
 dotenv.config({ path: './config.env' });
@@ -31,6 +33,8 @@ app.use((req, res, next) => {
 
 // Routes
 app.use('/api/v1/student', studentRouter);
+app.use('/api/v1/users', authRouter);
+app.use('/api/v1/users', userRouter);
 
 app.get('/', (req, res) => {
   res.redirect('/api/v1/student');
